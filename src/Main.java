@@ -12,25 +12,25 @@ public class Main {
         String[] dirs = {"src", "res", "savegames", "temp"};
         for (String s : dirs) {
             log.append(makeDir(dirIni + s));
-            log.append("\n");
+            //log.append("\n");
         }
         //Создаем src
         final String dir1 = dirIni + "src\\";
         for (String s : new String[]{"main", "test"}) {
             log.append(makeDir(dir1 + s));
-            log.append("\n");
+            //log.append("\n");
         }
         //Создаем main
         final String subdir = dir1 + "main\\";
         for (String s : new String[]{"Main.java", "Utils.java"}) {
             log.append(makeFile(subdir + s));
-            log.append("\n");
+            //log.append("\n");
         }
         //Создаем res
         final String dir2 = dirIni + "res\\";
         for (String s : new String[]{"drawables", "vectors", "icons"}) {
             log.append(makeDir(dir2 + s));
-            log.append("\n");
+            //log.append("\n");
         }
         //Создаем temp
         final String tempdir = dirIni + "temp\\";
@@ -50,12 +50,12 @@ public class Main {
 
     static String makeFile(String filename) {
         File myFile = new File(filename);
-        String log = "Файл " + filename + " существует уже";
+        String log = "Файл " + filename + " существует уже"+ "\n";;
         try {
             if (myFile.createNewFile())
-                log = filename + " был создан";
+                log = filename + " был создан" + "\n";;
         } catch (IOException ex) {
-            log = "файл не создан, потому как: " + ex.getMessage();
+            log = "файл не создан, потому как: " + ex.getMessage() + "\n";;
         }
         return log;
 
@@ -69,7 +69,7 @@ public class Main {
             // производим запись от 0 до последнего байта из массива
             bos.write(buffer, 0, buffer.length);
         } catch (IOException ex) {
-            System.out.println("Что-то пошло не так" + ex.getMessage());
+            System.out.println("Что-то пошло не так " + ex.getMessage());
         }
     }
 }
